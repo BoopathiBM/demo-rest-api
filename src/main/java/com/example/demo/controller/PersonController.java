@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,11 @@ public class PersonController {
     @PutMapping("/people/{id}")
     public Person updatePersons(@PathVariable long id, @RequestBody Person person) {
         return personService.updatePerson(id, person);
+    }
+
+    @DeleteMapping("/people/{id}")
+    public void deletePerson(@PathVariable long id){
+         personService.deletePerson(id);
     }
 
 }

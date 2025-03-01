@@ -48,5 +48,11 @@ public class PersonService {
         throw new RuntimeException("Person not found");
     }
 
+    public void deletePerson(long id) {
+        personRepository.deleteById(id);
+        
+        //throw new UnsupportedOperationException("Unimplemented method 'deletePerson'");
+    }
+
     
 }
