@@ -1,0 +1,19 @@
+docker run --name some-mysql -e MYSQL_ROOT_HOST=% -e MYSQL_ROOT_PASSWORD=test123 -d mysql:latest
+sudo docker run --name mysql-container1 -e MYSQL_ROOT_HOST=% MYSQL_ROOT_PASSWORD=test123 -d mysql
+
+
+CREATE USER 'java'@'localhost' IDENTIFIED BY 'Java@123';
+
+
+GRANT ALL PRIVILEGES ON *.* TO 'java'@'localhost' WITH GRANT OPTION;
+
+docker run -d --name mysql-container \
+  -e MYSQL_ROOT_PASSWORD=test123 \
+  -e MYSQL_DATABASE=mydb \
+  -e MYSQL_USER=boopathi_db \
+  -e MYSQL_PASSWORD=Sql@123 \
+  -p 3306:3306 \
+  mysql:latest
+
+ALTER USER 'java'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Java@123';
+FLUSH PRIVILEGES;
